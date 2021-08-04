@@ -8,6 +8,8 @@ INCLUDE_FOLDER = -I include/ -I third_party/
 OBJ_FOLDER = ./obj/
 SRC_FOLDER = ./src/
 
+TEST_OUTPUT = .results
+
 SRCEXT := cpp
 
 # all sources, objs, and header files
@@ -26,3 +28,6 @@ all: $(OBJ)
 
 clean:
 	@rm -rf $(OBJ_FOLDER)* $(TARGET)
+
+test-with-file-input: $(TARGET)
+	@bash run_tests.sh ./$(TARGET) $(TEST_OUTPUT)
